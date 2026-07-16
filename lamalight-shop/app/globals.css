@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* ================================================================
+   LamaLight Brand Design Tokens — sampled from the logo
+   Tailwind v4 @theme syntax
+   ================================================================ */
+@theme inline {
+  /* ---- Brand palette ---- */
+  --color-rust:         #83421A;
+  --color-rust-deep:    #6B3512;
+  --color-bronze:       #6F532B;
+  --color-gold:         #EAAB42;
+  --color-amber:        #CE9B40;
+  --color-glow:         #FEF1C7;
+  --color-copper:       #C58F6B;
+  --color-paper:        #F2EBDC;
+  --color-paper-mid:    #FCF8EF;
+  --color-paper-deep:   #B8A992;
+  --color-text-muted:   #93805F;
+  --color-border:       #E0CFB4;
+
+  /* ---- Font families ---- */
+  --font-script: 'Parisienne', cursive;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* ---- Animations ---- */
+  --animate-fade-in: fade-in 0.7s ease forwards;
+  --animate-candle-flicker: candle-flicker 4s ease-in-out infinite;
+}
+
+/* ================================================================
+   Keyframes
+   ================================================================ */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes candle-flicker {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(234,171,66,0.55)) drop-shadow(0 0 24px rgba(234,171,66,0.25)); }
+  25%      { filter: drop-shadow(0 0 18px rgba(234,171,66,0.7))  drop-shadow(0 0 36px rgba(234,171,66,0.35)); }
+  50%      { filter: drop-shadow(0 0 10px rgba(234,171,66,0.45)) drop-shadow(0 0 20px rgba(234,171,66,0.2));  }
+  75%      { filter: drop-shadow(0 0 20px rgba(234,171,66,0.65)) drop-shadow(0 0 32px rgba(234,171,66,0.3));  }
+}
+
+/* ================================================================
+   Base
+   ================================================================ */
+body {
+  background-color: var(--color-paper);
+  color: var(--color-bronze);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================================================================
+   Apple Pay button
+   ================================================================ */
+.apple-pay-button {
+  -webkit-appearance: -apple-pay-button;
+  -apple-pay-button-type: plain;
+  -apple-pay-button-style: black;
+  width: 100%;
+  height: 48px;
+  cursor: pointer;
+}
+
+/* ================================================================
+   Scroll-reveal utility
+   ================================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
