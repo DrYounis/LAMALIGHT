@@ -4,7 +4,7 @@ Single-page minimalist e-commerce website for a Saudi handmade candle brand.
 
 ## Quick Start
 
-Open `candle-shop.html` in any browser — no build step, no server required.
+Open `index.html` in any browser — no build step, no server required.
 
 ## Features
 
@@ -23,7 +23,7 @@ Open `candle-shop.html` in any browser — no build step, no server required.
 ## File Structure
 
 ```
-├── candle-shop.html              # Main site
+├── index.html                   # Main site
 ├── lamalight-logo-transparent.png # Brand logo
 └── README.md
 ```
@@ -34,7 +34,7 @@ Drop the folder on any static host (Netlify, Vercel, GitHub Pages) — zero conf
 
 ### Apple Pay — Production Setup
 
-Replace the `TODO` stubs in `candle-shop.html` with real calls to your Saudi payment gateway:
+Replace the `TODO` stubs in `index.html` with real calls to your Saudi payment gateway:
 
 - [Moyasar](https://moyasar.com/docs/api/apple-pay)
 - [Tap Payments](https://developers.tap.company/docs/apple-pay)

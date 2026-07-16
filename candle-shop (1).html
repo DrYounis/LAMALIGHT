@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lamalight — Hand-Poured Soy Wax Candles</title>
+  <meta name="description" content="Lamalight — Hand-poured, natural soy wax candles. Minimalist scents for a warm home. شحن لجميع مناطق السعودية.">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    /* ========== CSS Custom Properties (RTL-ready) ========== */
+    :root {
+      --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-script:  'Parisienne', cursive;                 /* matches "LamaLight" logo script */
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      /* ===== LAMALIGHT BRAND PALETTE — extracted from official logo ===== */
+      --color-bg:        #F2EBDC;   /* logo paper, lightened */
+      --color-surface:   #FCF8EF;   /* warm card surface */
+      --color-text:      #4E3A22;   /* dark warm brown */
+      --color-text-muted:#93805F;   /* muted bronze */
+      --color-accent:    #EAAB42;   /* flame gold  (#EAAB42 from candle flame) */
+      --color-accent-dark:#CE9B40;  /* flame amber (#CE9B40) */
+      --color-brown:     #83421A;   /* rust — "LamaLight" script color */
+      --color-brown-deep:#6B3512;   /* darkened rust for hovers */
+      --color-copper:    #C58F6B;   /* wreath branches — borders/dividers */
+      --color-glow:      #FEF1C7;   /* monogram highlight cream */
+      --color-paper-deep:#B8A992;   /* true logo paper tone */
+      --color-border:    #E0CFB4;   /* copper-tinted border */
+      --color-vat-note:  #A8946F;
+      --navbar-height:   72px;
+      --transition:      0.3s ease;
+    }
+
+    /* ========== Global Reset & Base ========== */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--navbar-height);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--color-brown);
+    }
+
+    a { color: var(--color-accent); text-decoration: none; transition: color var(--transition); }
+    a:hover { color: var(--color-accent-dark); }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== Section Spacing ========== */
+    .section-padding {
+      padding: 100px 0;
+    }
+    @media (max-width: 768px) {
+      .section-padding { padding: 60px 0; }
+    }
+
+    .section-title {
+      font-family: var(--font-script);
+      font-size: 2.9rem;
+      font-weight: 400;
+      color: var(--color-brown);
+      text-align: center;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.01em;
+    }
+    /* echoes the "AROMATIC BLENDS" letterspaced lockup in the logo */
+    .section-subtitle {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+    }
+
+    /* ========== Navbar ========== */
+    .navbar {
+      background-color: rgba(247, 243, 238, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+      height: var(--navbar-height);
+      transition: background-color var(--transition), box-shadow var(--transition);
+    }
+    .navbar.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .navbar-brand {
+      font-family: var(--font-script);
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: var(--color-brown) !important;
+      letter-spacing: 0.01em;
+      line-height: 1;
+    }
+    .nav-link {
+      color: var(--color-text) !important;
+      font-weight: 400;
+      font-size: 0.95rem;
+      padding: 0.5rem 1.2rem !important;
+      transition: color var(--transition);
+    }
+    .nav-link:hover {
+      color: var(--color-accent) !important;
+    }
+    .cart-icon-wrapper {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.25rem;
+      color: var(--color-brown);
+      transition: color var(--transition);
+    }
+    .cart-icon-wrapper:hover { color: var(--color-accent); }
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      background-color: var(--color-accent);
+      color: var(--color-brown-deep);
+      font-size: 0.7rem;
+      font-weight: 600;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    /* ========== Hero Section — branded with LamaLight logo ========== */
+    .hero {
+      position: relative;
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 55% 42% at 50% 34%, rgba(254,241,199,0.9), transparent 70%),
+        linear-gradient(180deg, #EFE6D3 0%, var(--color-bg) 60%, #EAE0CB 100%);
+    }
+    /* faint handmade-paper fibre texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(47deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 7px),
+                  repeating-linear-gradient(-31deg, rgba(107,53,18,0.04) 0 1px, transparent 1px 11px);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--color-text);
+    }
+    .hero-logo {
+      width: min(78vw, 460px);
+      margin: 0 auto 1.2rem;
+      display: block;
+      filter: drop-shadow(0 0 40px rgba(254,241,199,0.6));
+      animation: heroGlow 5s ease-in-out infinite;
+    }
+    @keyframes heroGlow {
+      0%, 100% { filter: drop-shadow(0 0 30px rgba(254,241,199,0.5)); }
+      50%      { filter: drop-shadow(0 0 55px rgba(234,171,66,0.6)); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-logo { animation: none; }
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      color: var(--color-brown-deep);
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-shop {
+      background-color: var(--color-accent);
+      color: var(--color-brown-deep);
+      border: none;
+      padding: 14px 40px;
+      font-size: 1rem;
+      font-weight: 500;
+      font-family: var(--font-body);
+      border-radius: 0;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      box-shadow: 0 6px 24px rgba(234,171,66,0.4);
+      transition: all var(--transition);
+    }
+    .btn-shop:hover {
+      background-color: var(--color-brown);
+      color: var(--color-glow);
+    }
+    @media (max-width: 768px) {
+      .hero { min-height: 68vh; }
+      .hero-logo { width: 92vw; }
+      .hero-content p { font-size: 1rem; }
+    }
+
+    /* ========== Product Card ========== */
+    .product-card {
+      background: var(--color-surface);
+      border: none;
+      border-radius: 0;
+      overflow: hidden;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .product-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+    .product-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+    }
+    .product-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .product-card:hover .product-img-wrapper img {
+      transform: scale(1.06);
+    }
+    .product-card .card-body {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .product-name {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--color-brown);
+    }
+    .product-scent {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+    .product-price {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-brown);
+      margin-bottom: 0.2rem;
+    }
+    .product-vat-note {
+      font-size: 0.7rem;
+      color: var(--color-vat-note);
+      margin-bottom: 1rem;
+    }
+    .btn-add-cart {
+      background-color: transparent;
+      color: var(--color-brown);
+      border: 1.5px solid var(--color-brown);
+      padding: 8px 28px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all var(--transition);
+      font-family: var(--font-body);
+    }
+    .btn-add-cart:hover {
+      background-color: var(--color-brown);
+      color: #fff;
+    }
+
+    /* ========== About Section ========== */
+    .about-section {
+      background-color: var(--color-surface);
+    }
+    .about-section .about-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: var(--color-text);
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    /* ========== Reviews Section ========== */
+    .review-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 0;
+      padding: 2rem;
+      text-align: center;
+      height: 100%;
+    }
+    .review-stars {
+      color: var(--color-accent);
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .review-text {
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .review-author {
+      font-weight: 600;
+      color: var(--color-brown);
+      font-family: var(--font-heading);
+    }
+
+    /* ========== Footer ========== */
+    .site-footer {
+      background-color: var(--color-brown);
+      color: rgba(255,255,255,0.8);
+      padding: 50px 0 30px;
+      font-size: 0.9rem;
+    }
+    .site-footer h5 {
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .site-footer a {
+      color: rgba(255,255,255,0.7);
+      transition: color var(--transition);
+    }
+    .site-footer a:hover { color: #fff; }
+    .footer-social a {
+      font-size: 1.2rem;
+      margin-right: 1rem;
+    }
+
+    /* ========== Cart Offcanvas ========== */
+    .offcanvas-cart .offcanvas-header {
+      border-bottom: 1px solid var(--color-border);
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .cart-item-info { flex: 1; }
+    .cart-item-name { font-weight: 500; font-size: 0.95rem; }
+    .cart-item-price { font-size: 0.85rem; color: var(--color-text-muted); }
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-qty {
+      width: 28px; height: 28px;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      line-height: 1;
+      transition: all var(--transition);
+    }
+    .btn-qty:hover { border-color: var(--color-brown); }
+    .cart-item-qty span { min-width: 22px; text-align: center; font-weight: 500; }
+    .cart-item-remove {
+      color: #c0392b;
+      cursor: pointer;
+      font-size: 0.8rem;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .cart-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--color-text-muted);
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.4rem 0;
+      font-size: 0.9rem;
+    }
+    .cart-total-row.final {
+      font-weight: 700;
+      font-size: 1.05rem;
+      border-top: 1px solid var(--color-border);
+      margin-top: 0.4rem;
+      padding-top: 0.8rem;
+    }
+
+    /* ========== Apple Pay Button ========== */
+    .apple-pay-button {
+      -webkit-appearance: -apple-pay-button;
+      -apple-pay-button-type: plain;
+      -apple-pay-button-style: black;
+      width: 100%;
+      height: 48px;
+      display: none; /* hidden by default; shown by JS when supported */
+      cursor: pointer;
+    }
+    .apple-pay-button.visible {
+      display: block;
+    }
+
+    /* ========== Brand overrides for Bootstrap dark buttons ========== */
+    .btn-dark {
+      background-color: var(--color-brown) !important;
+      border-color: var(--color-brown) !important;
+      color: var(--color-glow) !important;
+    }
+    .btn-dark:hover, .btn-dark:focus {
+      background-color: var(--color-brown-deep) !important;
+      border-color: var(--color-brown-deep) !important;
+    }
+
+    /* ========== Copper wreath divider (echoes the logo wreath) ========== */
+    .brand-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      max-width: 340px;
+      margin: 0 auto 1.2rem;
+    }
+    .brand-divider::before,
+    .brand-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--color-copper));
+    }
+    .brand-divider::after {
+      background: linear-gradient(90deg, var(--color-copper), transparent);
+    }
+    .brand-divider i {
+      color: var(--color-accent);
+      font-size: 0.8rem;
+    }
+
+    /* ========== Fade-in Animation ========== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== RTL-ready class (for future Arabic translation) ========== */
+    /* Add `dir="rtl"` to <html> and uncomment the block below for Arabic */
+    /*
+    [dir="rtl"] .navbar-nav { padding-right: 0; }
+    [dir="rtl"] .footer-social a { margin-right: 0; margin-left: 1rem; }
+    [dir="rtl"] .cart-icon-wrapper .cart-badge { right: auto; left: -12px; }
+    */
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="navbar" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Lamalight</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+              aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <span class="cart-icon-wrapper" id="cartToggle" role="button" tabindex="0"
+                  aria-label="Open shopping cart" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+              <i class="bi bi-bag"></i>
+              <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="home" class="hero" aria-label="Hero banner">
+    <div class="hero-content container">
+      <img src="lamalight-logo-transparent.png" alt="LamaLight — Aromatic Blends, Handcrafted" class="hero-logo"
+           onerror="this.style.display='none'; document.getElementById('heroFallback').style.display='block';">
+      <h1 id="heroFallback" style="display:none; font-family: var(--font-script); font-weight:400; font-size: clamp(3rem, 9vw, 5.5rem); color: var(--color-brown);">LamaLight</h1>
+      <p>Hand-poured soy wax candles, crafted with care for a warm and calm home.</p>
+      <a href="#shop" class="btn btn-shop">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- ==================== SHOP / PRODUCTS ==================== -->
+  <section id="shop" class="section-padding">
+    <div class="container">
+      <div class="brand-divider fade-in" aria-hidden="true"><i class="bi bi-flower3"></i></div>
+      <h2 class="section-title fade-in">Our Collection</h2>
+      <p class="section-subtitle fade-in">Small-batch candles, made with natural ingredients and minimalist scents.</p>
+      <div class="row g-4" id="productGrid">
+        <!-- Products rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about" class="about-section section-padding">
+    <div class="container">
+      <div class="brand-divider fade-in" aria-hidden="true"><i class="bi bi-flower3"></i></div>
+      <h2 class="section-title fade-in">Our Story</h2>
+      <p class="section-subtitle fade-in">The art of slow living, captured in wax.</p>
+      <div class="about-text fade-in">
+        <p>
+          Lamalight was born from a simple belief: that a candle
+          should do more than just burn. It should transform a room. Every Lamalight candle is
+          hand-poured in small batches using 100% natural soy wax, lead-free cotton wicks,
+          and premium fragrance oils. No parabens, no phthalates, no shortcuts.
+        </p>
+        <p class="mt-3">
+          We believe in quality over quantity. Each scent is carefully developed over weeks —
+          layered, balanced, and never overwhelming. Just pure, clean fragrance that fills
+          your home with warmth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== REVIEWS ==================== -->
+  <section id="reviews" class="section-padding">
+    <div class="container">
+      <div class="brand-divider fade-in" aria-hidden="true"><i class="bi bi-flower3"></i></div>
+      <h2 class="section-title fade-in">Kind Words</h2>
+      <p class="section-subtitle fade-in">What our customers say about Lamalight.</p>
+      <div class="row g-4" id="reviewsGrid">
+        <!-- Reviews rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5>Lamalight</h5>
+          <p>Hand-poured in Riyadh, Saudi Arabia.<br>Natural soy wax. Minimalist scents.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact</h5>
+          <p>
+            <i class="bi bi-envelope me-2"></i> hello@lamalight.sa<br>
+            <i class="bi bi-telephone me-2"></i> +966 50 000 0000<br>
+            <i class="bi bi-geo-alt me-2"></i> Riyadh, Saudi Arabia
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h5>Follow Us</h5>
+          <p class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          </p>
+        </div>
+      </div>
+      <hr style="border-color: rgba(255,255,255,0.15);">
+      <p class="text-center mb-0" style="font-size:0.8rem; color: rgba(255,255,255,0.5);">
+        &copy; 2026 Lamalight. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==================== CART OFFCANVAS ==================== -->
+  <div class="offcanvas offcanvas-end offcanvas-cart" tabindex="-1" id="cartOffcanvas"
+       aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="cartOffcanvasLabel" style="font-family: var(--font-heading);">Your Cart</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <div id="cartItems" class="flex-grow-1">
+        <!-- Cart items rendered dynamically -->
+      </div>
+      <div id="cartSummary" style="display:none;">
+        <div class="cart-total-row"><span>Subtotal (excl. VAT)</span><span id="cartSubtotal">ر.س 0</span></div>
+        <div class="cart-total-row"><span>VAT 15%</span><span id="cartVAT">ر.س 0</span></div>
+        <div class="cart-total-row final"><span>Total (VAT included)</span><span id="cartTotal">ر.س 0</span></div>
+        <button class="btn btn-dark w-100 mt-3 rounded-0" id="btnCheckout" style="padding:12px; font-family: var(--font-body);">
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CHECKOUT MODAL ==================== -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-0 border-0">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="checkoutModalLabel" style="font-family: var(--font-heading);">Checkout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- VAT Breakdown in checkout -->
+          <div class="mb-3">
+            <div class="cart-total-row"><span>Subtotal (excl. VAT)</span><span id="modalSubtotal">ر.س 0</span></div>
+            <div class="cart-total-row"><span>VAT 15%</span><span id="modalVAT">ر.س 0</span></div>
+            <div class="cart-total-row final"><span>Total (VAT included)</span><span id="modalTotal">ر.س 0</span></div>
+          </div>
+
+          <hr>
+
+          <!-- Contact Information -->
+          <div class="mb-3">
+            <label for="checkoutName" class="form-label">Full Name</label>
+            <input type="text" class="form-control rounded-0" id="checkoutName" placeholder="Your name" required>
+          </div>
+          <div class="mb-3">
+            <label for="checkoutEmail" class="form-label">Email</label>
+            <input type="email" class="form-control rounded-0" id="checkoutEmail" placeholder="you@example.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="checkoutPhone" class="form-label">Phone</label>
+            <input type="tel" class="form-control rounded-0" id="checkoutPhone" placeholder="+966 5X XXX XXXX" required>
+          </div>
+
+          <!-- Apple Pay Button -->
+          <div class="apple-pay-button" id="applePayButton"
+               role="button" tabindex="0"
+               aria-label="Pay with Apple Pay"
+               title="Pay with Apple Pay">
+          </div>
+
+          <!-- Fallback Pay by Card button -->
+          <button class="btn btn-dark w-100 rounded-0" id="payByCardButton"
+                  style="padding:12px; font-family: var(--font-body); display:none;">
+            Pay by Card
+          </button>
+
+          <p class="text-muted mt-2 mb-0" style="font-size:0.75rem; text-align:center;">
+            <i class="bi bi-lock"></i> Secured by Saudi Payment Gateway
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ================================================================
+         PRODUCT DATA
+         All prices are VAT-INCLUSIVE (15% Saudi VAT included)
+         ================================================================ */
+      const PRODUCTS = [
+        {
+          id: 1,
+          name: 'Vanilla Bean',
+          scent: 'Warm vanilla with soft caramel undertones',
+          price: 85,   // SAR, VAT inclusive
+          image: 'https://images.unsplash.com/photo-1603483080228-26569b0bad94?w=600&q=80'
+        },
+        {
+          id: 2,
+          name: 'Lavender Fields',
+          scent: 'French lavender with a touch of bergamot',
+          price: 95,
+          image: 'https://images.unsplash.com/photo-1631049305153-08df915f2e30?w=600&q=80'
+        },
+        {
+          id: 3,
+          name: 'Amber & Oud',
+          scent: 'Rich amber blended with smoky Arabian oud',
+          price: 120,
+          image: 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=600&q=80'
+        },
+        {
+          id: 4,
+          name: 'Rose Garden',
+          scent: 'Damascus rose petals with a dewy finish',
+          price: 90,
+          image: 'https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?w=600&q=80'
+        },
+        {
+          id: 5,
+          name: 'Cedar & Sage',
+          scent: 'Earthy cedarwood and wild sage from the mountains',
+          price: 105,
+          image: 'https://images.unsplash.com/photo-1603483080309-b9e8bc75c98f?w=600&q=80'
+        },
+        {
+          id: 6,
+          name: 'Cinnamon Chai',
+          scent: 'Spiced cinnamon with a hint of cardamom and clove',
+          price: 75,
+          image: 'https://images.unsplash.com/photo-1596780280134-7a1da4df4b9e?w=600&q=80'
+        }
+      ];
+
+      /* ================================================================
+         REVIEW DATA
+         ================================================================ */
+      const REVIEWS = [
+        {
+          text: 'The Amber & Oud candle is absolutely divine. It fills my entire living room with the most elegant, warm scent. I\'ve already ordered three more as gifts.',
+          author: 'Noura A.',
+          stars: 5
+        },
+        {
+          text: 'Finally, a candle brand that understands subtlety. Lamalight\'s Lavender Fields is not overpowering — just a gentle, calming presence. Perfect for my evening routine.',
+          author: 'Khalid S.',
+          stars: 5
+        },
+        {
+          text: 'I love that these are made locally with natural ingredients. The packaging is beautiful and the burn time is excellent. Cinnamon Chai is my forever favorite.',
+          author: 'Reem M.',
+          stars: 5
+        }
+      ];
+
+      /* ================================================================
+         CART STATE (in-memory)
+         ================================================================ */
+      let cart = []; // { id, name, price, image, qty }
+
+      /* ================================================================
+         VAT UTILITY FUNCTIONS
+         Given a VAT-inclusive price, extract the VAT and subtotal.
+         Saudi VAT = 15%.
+         VAT = total_inclusive × (15 / 115)
+         Subtotal (excl. VAT) = total_inclusive × (100 / 115)
+         ================================================================ */
+      function extractVAT(priceInclusive) {
+        const vat = priceInclusive * 15 / 115;
+        const subtotal = priceInclusive - vat;
+        return { subtotal, vat };
+      }
+
+      function formatSAR(amount) {
+        return 'ر.س ' + amount.toFixed(2);
+      }
+
+      /* ================================================================
+         RENDER PRODUCTS
+         ================================================================ */
+      function renderProducts() {
+        const grid = document.getElementById('productGrid');
+        if (!grid) return;
+
+        grid.innerHTML = PRODUCTS.map(p => {
+          const { subtotal, vat } = extractVAT(p.price);
+          return `
+            <div class="col-lg-4 col-md-6">
+              <div class="product-card fade-in">
+                <a href="#" class="product-img-wrapper" aria-label="View ${p.name}">
+                  <img src="${p.image}" alt="${p.name} — ${p.scent}" loading="lazy">
+                </a>
+                <div class="card-body">
+                  <h3 class="product-name">${p.name}</h3>
+                  <p class="product-scent">${p.scent}</p>
+                  <p class="product-price">${formatSAR(p.price)}</p>
+                  <p class="product-vat-note" lang="ar">شامل ضريبة القيمة المضافة 15٪ / VAT included</p>
+                  <button class="btn-add-cart" onclick="addToCart(${p.id})" aria-label="Add ${p.name} to cart">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>`;
+        }).join('');
+      }
+
+      /* ================================================================
+         RENDER REVIEWS
+         ================================================================ */
+      function renderReviews() {
+        const grid = document.getElementById('reviewsGrid');
+        if (!grid) return;
+
+        grid.innerHTML = REVIEWS.map(r => `
+          <div class="col-md-4">
+            <div class="review-card fade-in">
+              <div class="review-stars">${'★'.repeat(r.stars)}</div>
+              <p class="review-text">"${r.text}"</p>
+              <p class="review-author">— ${r.author}</p>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      /* ================================================================
+         CART OPERATIONS
+         ================================================================ */
+
+      /** Add a product to the cart by its ID */
+      window.addToCart = function (productId) {
+        const product = PRODUCTS.find(p => p.id === productId);
+        if (!product) return;
+
+        const existing = cart.find(item => item.id === productId);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,   // VAT-inclusive
+            image: product.image,
+            qty: 1
+          });
+        }
+        updateCartUI();
+      };
+
+      /** Remove one unit from cart; if qty reaches 0, remove the item */
+      window.decreaseQty = function (productId) {
+        const idx = cart.findIndex(item => item.id === productId);
+        if (idx === -1) return;
+
+        if (cart[idx].qty > 1) {
+          cart[idx].qty -= 1;
+        } else {
+          cart.splice(idx, 1);
+        }
+        updateCartUI();
+      };
+
+      /** Completely remove an item from the cart */
+      window.removeFromCart = function (productId) {
+        cart = cart.filter(item => item.id !== productId);
+        updateCartUI();
+      };
+
+      /** Calculate VAT breakdown for the entire cart */
+      function getCartBreakdown() {
+        const totalInclVAT = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+        const vat = totalInclVAT * 15 / 115;
+        const subtotal = totalInclVAT - vat;
+        return { subtotal, vat, total: totalInclVAT };
+      }
+
+      /** Refresh cart offcanvas, badge, and checkout modal */
+      function updateCartUI() {
+        const badge = document.getElementById('cartBadge');
+        const itemsContainer = document.getElementById('cartItems');
+        const summaryContainer = document.getElementById('cartSummary');
+
+        const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+
+        // Badge
+        if (totalQty > 0) {
+          badge.style.display = 'flex';
+          badge.textContent = totalQty;
+        } else {
+          badge.style.display = 'none';
+        }
+
+        // Cart items list
+        if (cart.length === 0) {
+          itemsContainer.innerHTML = `
+            <div class="cart-empty">
+              <i class="bi bi-bag" style="font-size:2rem;"></i>
+              <p class="mt-2">Your cart is empty.</p>
+              <a href="#shop" class="btn btn-sm btn-outline-secondary rounded-0 mt-2" data-bs-dismiss="offcanvas">Browse Candles</a>
+            </div>`;
+          summaryContainer.style.display = 'none';
+        } else {
+          itemsContainer.innerHTML = cart.map(item => `
+            <div class="cart-item">
+              <div class="cart-item-info">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-price">${formatSAR(item.price)} each</div>
+              </div>
+              <div class="cart-item-qty">
+                <button class="btn-qty" onclick="decreaseQty(${item.id})" aria-label="Decrease quantity">−</button>
+                <span>${item.qty}</span>
+                <button class="btn-qty" onclick="addToCart(${item.id})" aria-label="Increase quantity">+</button>
+              </div>
+              <button class="cart-item-remove" onclick="removeFromCart(${item.id})" aria-label="Remove ${item.name}">
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          `).join('');
+          summaryContainer.style.display = 'block';
+
+          const { subtotal, vat, total } = getCartBreakdown();
+          document.getElementById('cartSubtotal').textContent = formatSAR(subtotal);
+          document.getElementById('cartVAT').textContent = formatSAR(vat);
+          document.getElementById('cartTotal').textContent = formatSAR(total);
+        }
+
+        // Also update checkout modal breakdown if visible
+        updateCheckoutModal();
+      }
+
+      /** Refresh the checkout modal with current cart totals */
+      function updateCheckoutModal() {
+        if (cart.length === 0) return;
+        const { subtotal, vat, total } = getCartBreakdown();
+        const modalSubtotal = document.getElementById('modalSubtotal');
+        const modalVAT = document.getElementById('modalVAT');
+        const modalTotal = document.getElementById('modalTotal');
+        if (modalSubtotal) modalSubtotal.textContent = formatSAR(subtotal);
+        if (modalVAT) modalVAT.textContent = formatSAR(vat);
+        if (modalTotal) modalTotal.textContent = formatSAR(total);
+      }
+
+      /* ================================================================
+         CHECKOUT BUTTON → Open modal
+         ================================================================ */
+      document.getElementById('btnCheckout').addEventListener('click', function () {
+        if (cart.length === 0) return;
+
+        // Close cart offcanvas
+        const cartOffcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas'));
+        if (cartOffcanvas) cartOffcanvas.hide();
+
+        updateCheckoutModal();
+
+        // Show checkout modal
+        const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+        checkoutModal.show();
+      });
+
+      /* ================================================================
+         APPLE PAY INTEGRATION
+         ================================================================ */
+      function setupApplePay() {
+        const applePayBtn = document.getElementById('applePayButton');
+        const payByCardBtn = document.getElementById('payByCardButton');
+
+        // Check if Apple Pay is available on this device / browser
+        const isApplePayAvailable = (
+          typeof window.ApplePaySession !== 'undefined' &&
+          window.ApplePaySession.canMakePayments()
+        );
+
+        if (isApplePayAvailable) {
+          applePayBtn.classList.add('visible');
+          payByCardBtn.style.display = 'none';
+
+          applePayBtn.addEventListener('click', startApplePaySession);
+        } else {
+          applePayBtn.classList.remove('visible');
+          applePayBtn.style.display = 'none';
+          payByCardBtn.style.display = 'block';
+        }
+      }
+
+      function startApplePaySession() {
+        if (cart.length === 0) return;
+
+        const { subtotal, vat, total } = getCartBreakdown();
+
+        /*
+          Apple Pay Payment Request
+          The payment sheet shows:
+          - Line items (each product)
+          - A dedicated "VAT 15%" line
+          - Total (VAT-inclusive)
+        */
+
+        // Build line items for each cart item
+        const lineItems = cart.map(item => ({
+          label: item.name,
+          amount: (item.price * item.qty).toFixed(2)  // VAT-inclusive individual total
+        }));
+
+        // Add explicit VAT line item
+        lineItems.push({
+          label: 'VAT 15%',
+          amount: vat.toFixed(2)
+        });
+
+        const paymentRequest = {
+          countryCode: 'SA',                     // Saudi Arabia
+          currencyCode: 'SAR',                   // Saudi Riyal
+          supportedNetworks: ['mada', 'visa', 'masterCard', 'amex'],
+          merchantCapabilities: ['supports3DS'],
+          total: {
+            label: 'Lamalight',
+            amount: total.toFixed(2),
+            type: 'final'
+          },
+          lineItems: lineItems
+        };
+
+        // --- Create Apple Pay Session ---
+        const session = new ApplePaySession(6, paymentRequest);
+
+        /*
+          TODO: onvalidatemerchant — Merchant Validation
+          -------------------------------------------------------
+          In a production environment, this must call YOUR SERVER endpoint,
+          which in turn calls Apple's validation server with your
+          Merchant Identifier, the validation URL from the event, and your
+          Payment Processing Certificate.
+
+          For Saudi-based payment gateways, use one of:
+
+          • Moyasar (moyasar.com)
+            - Use Moyasar's Apple Pay endpoint to validate the merchant session.
+            - Docs: https://moyasar.com/docs/api/apple-pay
+
+          • Tap Payments (tap.company)
+            - Use Tap's merchant validation API.
+            - Docs: https://developers.tap.company/docs/apple-pay
+
+          • HyperPay (hyperpay.com)
+            - Use HyperPay's server-side SDK for Apple Pay session validation.
+            - Docs: https://hyperpay.com/documentation
+
+          Example (Moyasar):
+            fetch('https://api.moyasar.com/v1/apple_pay/session', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                validation_url: event.validationURL,
+                domain: window.location.hostname,
+                publishable_api_key: 'pk_live_xxxxxxxxx'
+              })
+            })
+            .then(res => res.json())
+            .then(data => session.completeMerchantValidation(data));
+
+          The placeholder below simulates the flow for demo purposes.
+        */
+        session.onvalidatemerchant = function (event) {
+          console.warn(
+            '[Apple Pay] Merchant validation triggered.\n' +
+            '  validationURL:', event.validationURL, '\n' +
+            '  TODO: Replace this with a real call to your payment gateway (Moyasar / Tap / HyperPay).'
+          );
+
+          /*
+            Placeholder: In a real integration, call your server here.
+            The session will remain pending until completeMerchantValidation() is called.
+            For now, we explicitly note that this is a stub.
+          */
+          // session.completeMerchantValidation(merchantSessionObject);
+        };
+
+        /*
+          TODO: onpaymentauthorized — Process the Payment
+          -------------------------------------------------------
+          After the user authorizes with Face ID / Touch ID, the `event.payment.token`
+          contains the encrypted payment data. Send this token to your server,
+          which forwards it to your payment gateway to charge the card.
+
+          Example (Moyasar):
+            fetch('https://api.moyasar.com/v1/payments', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                amount: total * 100,   // amount in halalas
+                currency: 'SAR',
+                source: {
+                  type: 'applepay',
+                  token: event.payment.token
+                },
+                description: 'Lamalight order'
+              })
+            })
+            .then(res => res.json())
+            .then(payment => {
+              if (payment.status === 'paid') {
+                session.completePayment(ApplePaySession.STATUS_SUCCESS);
+              } else {
+                session.completePayment(ApplePaySession.STATUS_FAILURE);
+              }
+            });
+        */
+        session.onpaymentauthorized = function (event) {
+          console.warn(
+            '[Apple Pay] Payment authorized.\n' +
+            '  payment.token:', event.payment.token, '\n' +
+            '  TODO: Send this token to your server → payment gateway for processing.'
+          );
+
+          /*
+            Placeholder: Simulate a successful payment for demo purposes.
+            Replace with real API call to Moyasar / Tap / HyperPay.
+          */
+
+          // session.completePayment(ApplePaySession.STATUS_SUCCESS);
+        };
+
+        /*
+          onpaymentmethodselected — Called when the user changes card type.
+          Update the total if needed (e.g., if different card networks have
+          different surcharges). Usually, just return the same total.
+        */
+        session.onpaymentmethodselected = function (event) {
+          const update = {
+            newTotal: {
+              label: 'Lamalight',
+              amount: total.toFixed(2),
+              type: 'final'
+            },
+            newLineItems: lineItems
+          };
+          session.completePaymentMethodSelection(update);
+        };
+
+        /*
+          onshippingcontactselected — Not needed for physical goods
+          delivered within Saudi Arabia, but can be used to calculate
+          shipping costs based on city.
+        */
+        session.onshippingcontactselected = function (event) {
+          const update = {
+            newTotal: {
+              label: 'Lamalight',
+              amount: total.toFixed(2),
+              type: 'final'
+            },
+            newLineItems: lineItems,
+            newShippingMethods: []
+          };
+          session.completeShippingContactSelection(update);
+        };
+
+        // Begin the Apple Pay session
+        session.begin();
+      }
+
+      /* ================================================================
+         NAVBAR SCROLL SHADOW
+         ================================================================ */
+      function handleNavbarScroll() {
+        const navbar = document.getElementById('navbar');
+        if (!navbar) return;
+        if (window.scrollY > 20) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+
+      /* ================================================================
+         SCROLL-TRIGGERED FADE-IN ANIMATION
+         ================================================================ */
+      function handleScrollReveal() {
+        const elements = document.querySelectorAll('.fade-in');
+        const windowHeight = window.innerHeight;
+
+        elements.forEach(el => {
+          const rect = el.getBoundingClientRect();
+          const revealPoint = 100; // px before element enters viewport
+          if (rect.top < windowHeight - revealPoint) {
+            el.classList.add('visible');
+          }
+        });
+      }
+
+      /* ================================================================
+         INITIALIZATION
+         ================================================================ */
+      function init() {
+        renderProducts();
+        renderReviews();
+        updateCartUI();
+        setupApplePay();
+
+        // Scroll listeners
+        window.addEventListener('scroll', handleNavbarScroll);
+        window.addEventListener('scroll', handleScrollReveal);
+
+        // Trigger initial visibility
+        handleNavbarScroll();
+        // Delay reveal slightly so DOM is painted
+        setTimeout(handleScrollReveal, 100);
+
+        // Close mobile navbar when a link is clicked
+        document.querySelectorAll('#navMenu .nav-link').forEach(link => {
+          link.addEventListener('click', () => {
+            const navMenu = document.getElementById('navMenu');
+            const bsCollapse = bootstrap.Collapse.getInstance(navMenu);
+            if (bsCollapse) bsCollapse.hide();
+          });
+        });
+      }
+
+      // Run on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+
+</body>
+</html>
