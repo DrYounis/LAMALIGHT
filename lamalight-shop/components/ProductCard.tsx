@@ -22,7 +22,7 @@ export default function ProductCard({ product }: Props) {
                  hover:-translate-y-1 duration-300"
     >
       {/* Image */}
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={product.image}
           alt={`${product.name} — ${product.scent}`}

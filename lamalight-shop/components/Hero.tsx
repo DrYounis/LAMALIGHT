@@ -12,22 +12,23 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-[85vh] flex items-center justify-center overflow-hidden"
-      style={{
-        background: 'linear-gradient(180deg, #EFE6D3 0%, #F2EBDC 40%, #EAE0CB 100%)',
-      }}
       aria-label="Hero banner"
     >
-      {/* Paper-fibre texture overlay */}
+      {/* Background image — French window candle photo */}
+      <Image
+        src="/images/french-window-candle.jpg"
+        alt=""
+        fill
+        className="object-cover"
+        priority
+        aria-hidden="true"
+      />
+
+      {/* Cream overlay */}
       <div
-        className="absolute inset-0 opacity-[0.06] pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(184,169,146,0.3) 2px,
-            rgba(184,169,146,0.3) 3px
-          )`,
+          background: 'linear-gradient(180deg, rgba(239,230,211,0.55) 0%, rgba(242,235,220,0.65) 50%, rgba(234,224,203,0.7) 100%)',
         }}
         aria-hidden="true"
       />

@@ -1,6 +1,7 @@
 /* ================================================================
    Product & Review Data
    Prices are VAT-INCLUSIVE (15% Saudi VAT)
+   Photos: real LamaLight product shots
    ================================================================ */
 
 export interface Product {
@@ -8,7 +9,7 @@ export interface Product {
   name: string;
   scent: string;
   price: number; // SAR, VAT-inclusive
-  image: string; // Unsplash URL
+  image: string;
 }
 
 export interface Review {
@@ -20,61 +21,54 @@ export interface Review {
 export const PRODUCTS: Product[] = [
   {
     id: 1,
-    name: 'Vanilla Bean',
-    scent: 'Warm vanilla with soft caramel undertones',
-    price: 85,
-    image: 'https://images.unsplash.com/photo-1603483080228-26569b0bad94?w=600&q=80',
+    name: 'Rose Bouquet Candle',
+    scent: 'Sculpted wax roses with a lit center — elegant centerpiece',
+    price: 120,
+    image: '/images/rose-bouquet-candle.jpg',
   },
   {
     id: 2,
-    name: 'Lavender Fields',
-    scent: 'French lavender with a touch of bergamot',
-    price: 95,
-    image: 'https://images.unsplash.com/photo-1631049305153-08df915f2e30?w=600&q=80',
+    name: 'Bouquet Candle',
+    scent: 'Dried roses, lavender & eucalyptus on a hand-poured base',
+    price: 110,
+    image: '/images/bouquet-candle.jpg',
   },
   {
     id: 3,
-    name: 'Amber & Oud',
-    scent: 'Rich amber blended with smoky Arabian oud',
-    price: 120,
-    image: 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=600&q=80',
+    name: 'Personalized Candle',
+    scent: 'Custom brass name-tag candle — صممي شمعتك',
+    price: 95,
+    image: '/images/personalized-candle.jpg',
   },
   {
     id: 4,
-    name: 'Rose Garden',
-    scent: 'Damascus rose petals with a dewy finish',
-    price: 90,
-    image: 'https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?w=600&q=80',
+    name: 'Fleurs d\'Ivoire',
+    scent: 'Ivory floral candle beside a sunlit French window',
+    price: 85,
+    image: '/images/french-window-candle.jpg',
   },
   {
     id: 5,
-    name: 'Cedar & Sage',
-    scent: 'Earthy cedarwood and wild sage from the mountains',
-    price: 105,
-    image: 'https://images.unsplash.com/photo-1603483080309-b9e8bc75c98f?w=600&q=80',
-  },
-  {
-    id: 6,
-    name: 'Cinnamon Chai',
-    scent: 'Spiced cinnamon with a hint of cardamom and clove',
-    price: 75,
-    image: 'https://images.unsplash.com/photo-1596780280134-7a1da4df4b9e?w=600&q=80',
+    name: 'Luxury Gift Box',
+    scent: 'The full unboxing experience — candle + dried florals',
+    price: 150,
+    image: '/images/luxury-gift-box.jpg',
   },
 ];
 
 export const REVIEWS: Review[] = [
   {
-    text: 'The Amber & Oud candle is absolutely divine. It fills my entire living room with the most elegant, warm scent. I\'ve already ordered three more as gifts.',
+    text: 'The Rose Bouquet Candle is absolutely stunning. It became the centerpiece of my dinner table — everyone asked where I got it.',
     author: 'Noura A.',
     stars: 5,
   },
   {
-    text: 'Finally, a candle brand that understands subtlety. Lamalight\'s Lavender Fields is not overpowering — just a gentle, calming presence. Perfect for my evening routine.',
+    text: 'Finally, a candle brand that understands subtlety. My personalized candle with the brass name tag was the perfect gift.',
     author: 'Khalid S.',
     stars: 5,
   },
   {
-    text: 'I love that these are made locally with natural ingredients. The packaging is beautiful and the burn time is excellent. Cinnamon Chai is my forever favorite.',
+    text: 'I ordered the Luxury Gift Box for my sister\'s birthday. The unboxing was an experience in itself — beautifully packaged with dried flowers.',
     author: 'Reem M.',
     stars: 5,
   },
