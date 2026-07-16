@@ -1,45 +1,36 @@
-# Lamalight — Hand-Poured Soy Wax Candles
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Single-page minimalist e-commerce website for a Saudi handmade candle brand.
+## Getting Started
 
-## Quick Start
+First, run the development server:
 
-Open `index.html` in any browser — no build step, no server required.
-
-## Features
-
-- **Single file** — HTML + CSS + JavaScript, Bootstrap 5 via CDN
-- **Saudi-ready** — prices in SAR (ر.س), 15% VAT included throughout
-- **Apple Pay** — `ApplePaySession` v6 flow with availability detection; TODO stubs for Moyasar / Tap Payments / HyperPay
-- **Working cart** — add/remove items, quantity controls, VAT breakdown (subtotal + VAT 15% + total)
-- **Responsive** — mobile-first, 3-col → 2-col → 1-col grid
-
-## Design
-
-- Logo-sampled palette: rust `#83421A`, gold `#EAAB42`, bronze `#6F532B`, copper `#C58F6B`, paper cream `#F2EBDC`
-- Three-role typography: Parisienne (script), Jost (labels), Lora (body)
-- Animated candle glow in hero section
-
-## File Structure
-
-```
-├── index.html                   # Main site
-├── lamalight-logo-transparent.png # Brand logo
-└── README.md
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Deploy
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Drop the folder on any static host (Netlify, Vercel, GitHub Pages) — zero configuration.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Apple Pay — Production Setup
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Replace the `TODO` stubs in `index.html` with real calls to your Saudi payment gateway:
+## Learn More
 
-- [Moyasar](https://moyasar.com/docs/api/apple-pay)
-- [Tap Payments](https://developers.tap.company/docs/apple-pay)
-- [HyperPay](https://hyperpay.com/documentation)
+To learn more about Next.js, take a look at the following resources:
 
-## License
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-All rights reserved — Lamalight.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
