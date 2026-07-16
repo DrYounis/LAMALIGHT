@@ -31,7 +31,7 @@ export default function Footer() {
               <span className="inline-block w-5">☏</span> +966 59 041 4349
             </span>
             <span className="block">
-              <span className="inline-block w-5">⌂</span> Riyadh, Hail, Saudi Arabia
+              <span className="inline-block w-5">⌂</span> Hail, Saudi Arabia
             </span>
           </p>
         </div>
